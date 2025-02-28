@@ -1,5 +1,11 @@
+import { Suspense } from 'react';
+
 // Components
-import CabinCard from '@/app/_components/CabinCard';
+import CabinList from '@/app/_components/CabinList';
+import Spinner from '@/app/_components/Spinner';
+
+// Incremental Static Regeneration (ISR) fetch data based on the seconds
+export const revalidate = 3600;
 
 // Page Metadata
 export const metadata = {
@@ -7,9 +13,6 @@ export const metadata = {
 };
 
 export default function Page() {
-	// CHANGE
-	const cabins = [];
-
 	return (
 		<div>
 			<h1 className='text-4xl mb-5 text-accent-400 font-medium'>
@@ -24,13 +27,10 @@ export default function Page() {
 				peaceful, calm vacation. Welcome to paradise.
 			</p>
 
-			{cabins.length > 0 && (
-				<div className='grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14'>
-					{cabins.map((cabin) => (
-						<CabinCard cabin={cabin} key={cabin.id} />
-					))}
-				</div>
-			)}
+			{/* Using Suspense to show loading indication only for CabinList section when data is loading */}
+			<Suspense fallback={<Spinner />}>
+				<CabinList />
+			</Suspense>
 		</div>
 	);
 }

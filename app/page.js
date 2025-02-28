@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 // public
-import bg from '@/public/bg.png';
+import bg from '/public/bg.png';
 
 export default function Page() {
 	return (
