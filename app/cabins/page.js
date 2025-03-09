@@ -3,16 +3,23 @@ import { Suspense } from 'react';
 // Components
 import CabinList from '@/app/_components/CabinList';
 import Spinner from '@/app/_components/Spinner';
+import Filter from '@/app/_components/Filter';
+import ReservationReminder from '@/app/_components/ReservationReminder';
 
 // Incremental Static Regeneration (ISR) fetch data based on the seconds
-export const revalidate = 3600;
+// Since we are using searchParams this page is already become dynamic so we no longer need revalidate
+// export const revalidate = 3600;
 
 // Page Metadata
 export const metadata = {
 	title: 'Cabins',
 };
 
-export default function Page() {
+export default async function Page({ searchParams }) {
+	// Steps to share state between client and server from url (searchParams only available in page.js)
+	const urlParams = await searchParams;
+	const filter = urlParams?.capacity ?? 'all';
+
 	return (
 		<div>
 			<h1 className='text-4xl mb-5 text-accent-400 font-medium'>
@@ -27,9 +34,15 @@ export default function Page() {
 				peaceful, calm vacation. Welcome to paradise.
 			</p>
 
-			{/* Using Suspense to show loading indication only for CabinList section when data is loading */}
-			<Suspense fallback={<Spinner />}>
-				<CabinList />
+			{/* Cabin list filter buttons */}
+			<div className='flex justify-end mb-8'>
+				<Filter />
+			</div>
+
+			{/* (Streaming) Using Suspense to show loading indication only for CabinList section when data is loading */}
+			<Suspense fallback={<Spinner />} key={filter}>
+				<CabinList filter={filter} />
+				<ReservationReminder />
 			</Suspense>
 		</div>
 	);

@@ -12,6 +12,9 @@ const josefin = Josefin_Sans({
 // Global style
 import '@/app/_styles/globals.css';
 
+// Context API
+import { ReservationProvider } from '@/app/_components/ReservationContext';
+
 // Metadata
 export const metadata = {
 	title: {
@@ -32,7 +35,10 @@ export default function RootLayout({ children }) {
 				<Header />
 
 				<div className='flex-1 px-8 py-12 grid'>
-					<main className='max-w-7xl mx-auto w-full'>{children}</main>
+					<main className='max-w-7xl mx-auto w-full'>
+						{/* Providing context API to entire client */}
+						<ReservationProvider>{children}</ReservationProvider>
+					</main>
 				</div>
 			</body>
 		</html>
