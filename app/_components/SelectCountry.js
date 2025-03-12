@@ -15,6 +15,7 @@ async function SelectCountry({ defaultCountry, name, id, className }) {
 			// Here we use a trick to encode BOTH the country name and the flag into the value. Then we split them up again later in the server action
 			defaultValue={`${defaultCountry}%${flag}`}
 			className={className}
+			key={defaultCountry} // To prevent going back to the previous value on clearing the caching(using: revalidatePath)
 		>
 			<option value=''>Select country...</option>
 			{countries.map((c) => (

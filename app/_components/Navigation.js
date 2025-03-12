@@ -6,7 +6,6 @@ import { auth } from '@/app/_lib/auth';
 export default async function Navigation() {
 	// Getting currently logedin user
 	const session = await auth();
-	console.log(session);
 
 	return (
 		<nav className='z-10 text-xl'>
