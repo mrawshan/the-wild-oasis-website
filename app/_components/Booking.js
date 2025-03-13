@@ -4,28 +4,28 @@ import { auth } from '@/app/_lib/auth';
 
 // Components
 import DateSelector from '@/app/_components/DateSelector';
-import ReservationForm from '@/app/_components/ReservationForm';
+import BookingForm from '@/app/_components/BookingForm';
 import LoginMessage from '@/app/_components/LoginMessage';
 
-async function Reservation({ cabin }) {
+async function Booking({ cabin }) {
 	// Fixing blocking waterfall (Multiple fetching)
 	const [settings, bookedDates] = await Promise.all([
 		getSettings(),
 		getBookedDatesByCabinId(cabin.id),
 	]);
 
-	// Getting currently logedin user
+	// Getting currently login user
 	const session = await auth();
 
 	return (
-		<div className='grid grid-cols-[auto_auto] border border-primary-800 min-h-[100px]'>
+		<div className='grid grid-cols-[auto_auto] border border-primary-800'>
 			<DateSelector
 				settings={settings}
 				bookedDates={bookedDates}
 				cabin={cabin}
 			/>
 			{session?.user ? (
-				<ReservationForm cabin={cabin} user={session.user} />
+				<BookingForm cabin={cabin} user={session.user} />
 			) : (
 				<LoginMessage />
 			)}
@@ -33,4 +33,4 @@ async function Reservation({ cabin }) {
 	);
 }
 
-export default Reservation;
+export default Booking;

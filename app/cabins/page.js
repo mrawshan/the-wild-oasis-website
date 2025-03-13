@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import CabinList from '@/app/_components/CabinList';
 import Spinner from '@/app/_components/Spinner';
 import Filter from '@/app/_components/Filter';
-import ReservationReminder from '@/app/_components/ReservationReminder';
+import BookingReminder from '@/app/_components/BookingReminder';
 
 // Incremental Static Regeneration (ISR) fetch data based on the seconds
 // Since we are using searchParams this page is already become dynamic so we no longer need revalidate
@@ -42,7 +42,7 @@ export default async function Page({ searchParams }) {
 			{/* (Streaming) Using Suspense to show loading indication only for CabinList section when data is loading */}
 			<Suspense fallback={<Spinner />} key={filter}>
 				<CabinList filter={filter} />
-				<ReservationReminder />
+				<BookingReminder />
 			</Suspense>
 		</div>
 	);

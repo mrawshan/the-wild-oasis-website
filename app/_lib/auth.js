@@ -11,7 +11,7 @@ const authConfig = {
 			clientSecret: process.env.AUTH_GOOGLE_SECRET,
 		}),
 	],
-	// For midlewere authorized
+	// For middleware authorized
 	callbacks: {
 		authorized({ auth, request }) {
 			return !!auth?.user;
@@ -31,7 +31,7 @@ const authConfig = {
 			}
 		},
 		// To get the guestId all over the place like this: (const session = await auth();)
-		// In the curent session only available name and the email (So we are adding the guestId to the session here)
+		// In the current session only available name and the email (So we are adding the guestId to the session here)
 		async session({ session, user }) {
 			const guest = await getGuest(session.user.email);
 
@@ -40,7 +40,7 @@ const authConfig = {
 			return session;
 		},
 	},
-	// For custome login page
+	// For custom login page
 	pages: {
 		signIn: '/login',
 	},

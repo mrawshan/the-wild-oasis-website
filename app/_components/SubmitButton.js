@@ -4,8 +4,6 @@ import { useFormStatus } from 'react-dom';
 
 // New component to place the useFormStatus Hook (To show the loading indication on the btn when submiting the form)
 export default function SubmitButton({ btnName, pendingLabel }) {
-	console.log(btnName);
-
 	const { pending } = useFormStatus();
 
 	return (

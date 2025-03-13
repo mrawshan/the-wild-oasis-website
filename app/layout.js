@@ -13,7 +13,7 @@ const josefin = Josefin_Sans({
 import '@/app/_styles/globals.css';
 
 // Context API
-import { ReservationProvider } from '@/app/_components/ReservationContext';
+import { BookingProvider } from '@/app/_components/BookingContext';
 
 // Metadata
 export const metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
 				<div className='flex-1 px-8 py-12 grid'>
 					<main className='max-w-7xl mx-auto w-full'>
 						{/* Providing context API to entire client */}
-						<ReservationProvider>{children}</ReservationProvider>
+						<BookingProvider>{children}</BookingProvider>
 					</main>
 				</div>
 			</body>

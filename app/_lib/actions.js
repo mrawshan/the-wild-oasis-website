@@ -49,6 +49,36 @@ export async function updateGuest(formData) {
 	revalidatePath('/account/profile');
 }
 
+// Create bookings
+export async function createBooking(bookingData, formData) {
+	// Authentication
+	const session = await auth();
+	if (!session) throw new Error('You must be logged in');
+
+	const newBooking = {
+		...bookingData,
+		guestId: session.user.guestId,
+		numGuests: +formData.get('numGuests'),
+		observations: formData.get('observations').slice(0, 1000),
+		extrasPrice: 0,
+		totalPrice: bookingData.cabinPrice,
+		isPaid: false,
+		hasBreakfast: false,
+		status: 'unconfirmed',
+	};
+
+	// Create in the database
+	const { error } = await supabase.from('bookings').insert([newBooking]);
+
+	if (error) throw new Error('Booking could not be created');
+
+	// Clearing the caching to update the UI
+	revalidatePath(`cabins/${bookingData.cabinId}`);
+
+	// Redirect to the bookings
+	redirect('/cabins/thankyou');
+}
+
 // Update booking
 export async function updateBooking(formData) {
 	// Authentication
@@ -82,19 +112,19 @@ export async function updateBooking(formData) {
 	if (error) throw new Error('Booking could not be updated');
 
 	// Clearing the caching to update the UI
-	revalidatePath('/account/reservations');
+	revalidatePath('/account/bookings');
 
-	// Redirect to the reservations
-	redirect('/account/reservations');
+	// Redirect to the bookings
+	redirect('/account/bookings');
 }
 
-// Delete reservation
-export async function deleteReservation(bookingId) {
+// Delete booking
+export async function deleteBooking(bookingId) {
 	// Authentication
 	const session = await auth();
 	if (!session) throw new Error('You must be logged in');
 
-	// Extra protection (Authorization) (To make users can delete only their own reservation)
+	// Extra protection (Authorization) (To make users can delete only their own booking)
 	const guestBookings = await getBookings(session.user.guestId);
 	const guestBookingIds = guestBookings.map((booking) => booking.id);
 
@@ -110,5 +140,5 @@ export async function deleteReservation(bookingId) {
 	if (error) throw new Error('Booking could not be deleted');
 
 	// clearing the caching to update the UI
-	revalidatePath('/account/reservations');
+	revalidatePath('/account/bookings');
 }

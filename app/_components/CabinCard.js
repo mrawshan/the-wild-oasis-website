@@ -54,7 +54,7 @@ function CabinCard({ cabin }) {
 						href={`/cabins/${id}`}
 						className='border-l border-primary-800 py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900'
 					>
-						Details & reservation &rarr;
+						Details & booking &rarr;
 					</Link>
 				</div>
 			</div>

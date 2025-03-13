@@ -4,11 +4,11 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 import { format } from 'date-fns';
 
 // Context API
-import { useReservation } from '@/app/_components/ReservationContext';
+import { useBooking } from '@/app/_components/BookingContext';
 
-function ReservationReminder() {
+function BookingReminder() {
 	// 03) Consuming context value
-	const { range, resetRange } = useReservation();
+	const { range, resetRange } = useBooking();
 
 	if (!range.from || !range.to) return null;
 
@@ -29,4 +29,4 @@ function ReservationReminder() {
 	);
 }
 
-export default ReservationReminder;
+export default BookingReminder;

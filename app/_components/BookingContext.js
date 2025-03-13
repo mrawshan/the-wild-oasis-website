@@ -3,13 +3,13 @@
 import { createContext, useContext, useState } from 'react';
 
 // Context (Provider)
-const ReservationContext = createContext();
+const BookingContext = createContext();
 
 // Initial state
 const initialState = { from: undefined, to: undefined };
 
 // 1) Provider component
-function ReservationProvider({ children }) {
+function BookingProvider({ children }) {
 	const [range, setRange] = useState(initialState);
 
 	// Helper function
@@ -17,18 +17,18 @@ function ReservationProvider({ children }) {
 
 	return (
 		// 2) Provide value to child components
-		<ReservationContext.Provider value={{ range, setRange, resetRange }}>
+		<BookingContext.Provider value={{ range, setRange, resetRange }}>
 			{children}
-		</ReservationContext.Provider>
+		</BookingContext.Provider>
 	);
 }
 
-// Custom corresponding hook (Basicaly to Consum the context value)
-function useReservation() {
-	const context = useContext(ReservationContext);
+// Custom corresponding hook (Basically to Consume the context value)
+function useBooking() {
+	const context = useContext(BookingContext);
 	if (context === undefined)
 		throw new Error('Context was used outside provider');
 	return context;
 }
 
-export { ReservationProvider, useReservation };
+export { BookingProvider, useBooking };

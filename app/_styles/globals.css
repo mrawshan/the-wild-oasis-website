@@ -51,3 +51,7 @@
 .rdp-month_caption {
 	justify-content: center !important;
 }
+
+.rdp-months {
+	gap: 10px !important;
+}

@@ -5,16 +5,11 @@ import { getBooking, getCabin } from '@/app/_lib/data-service';
 // Components
 import SubmitButton from '@/app/_components/SubmitButton';
 
-// Page Metadata
-export const metadata = {
-	title: 'Edit reservation',
-};
-
 export default async function Page({ params }) {
 	// Getting the booking id
 	const bookingId = (await params).bookingId;
 
-	// Gettting the booking
+	// Getting the booking
 	const { numGuests, observations, cabinId } = await getBooking(bookingId);
 
 	// Getting the cabin
@@ -23,7 +18,7 @@ export default async function Page({ params }) {
 	return (
 		<div>
 			<h2 className='font-semibold text-2xl text-accent-400 mb-7'>
-				Edit Reservation #{bookingId}
+				Edit Booking #{bookingId}
 			</h2>
 
 			<form
@@ -70,7 +65,7 @@ export default async function Page({ params }) {
 
 				<div className='flex justify-end items-center gap-6'>
 					<SubmitButton
-						btnName='Update reservation'
+						btnName='Update booking'
 						pendingLabel='Updating...'
 					/>
 				</div>

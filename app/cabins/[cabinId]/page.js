@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { getCabin, getCabins } from '@/app/_lib/data-service';
 
 // Components
-import Reservation from '@/app/_components/Reservation';
+import Booking from '@/app/_components/Booking';
 import Spinner from '@/app/_components/Spinner';
 import Cabin from '@/app/_components/Cabin';
 
@@ -43,9 +43,9 @@ export default async function Page({ params }) {
 				</h2>
 
 				{/* To book a cabin */}
-				{/* (Streaming) Using Suspense to show loading indication only for Reservation section when data is loading */}
+				{/* (Streaming) Using Suspense to show loading indication only for Booking section when data is loading */}
 				<Suspense fallback={<Spinner />}>
-					<Reservation cabin={cabin} />
+					<Booking cabin={cabin} />
 				</Suspense>
 			</div>
 		</div>
