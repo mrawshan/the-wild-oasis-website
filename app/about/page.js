@@ -20,13 +20,13 @@ export default async function Page() {
 	const cabins = await getCabins();
 
 	return (
-		<div className='grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center'>
-			<div className='col-span-3'>
+		<div className='grid grid-cols-5 gap-x-5 gap-y-5 min-[900px]:gap-x-24 min-[700px]:gap-y-32 text-lg items-center'>
+			<div className='col-span-5 min-[700px]:col-span-3'>
 				<h1 className='text-4xl mb-10 text-accent-400 font-medium'>
 					Welcome to The Wild Oasis
 				</h1>
 
-				<div className='space-y-8'>
+				<div className='space-y-8 text-justify'>
 					<p>
 						Where nature&apos;s beauty and comfortable living blend
 						seamlessly. Hidden away in the heart of the Italian Dolomites,
@@ -50,7 +50,7 @@ export default async function Page() {
 				</div>
 			</div>
 
-			<div className='col-span-2'>
+			<div className='col-span-5 min-[700px]:col-span-2'>
 				{/* Method 1 Image importing better for SEO */}
 				<Image
 					src={image1}
@@ -60,7 +60,7 @@ export default async function Page() {
 				/>
 			</div>
 
-			<div className='relative aspect-square col-span-2'>
+			<div className='relative aspect-square col-span-5 min-[700px]:col-span-2'>
 				{/* Method 2 Image importing */}
 				<Image
 					src='/about-2.jpg'
@@ -70,12 +70,12 @@ export default async function Page() {
 				/>
 			</div>
 
-			<div className='col-span-3'>
+			<div className='col-span-5 min-[700px]:col-span-3'>
 				<h1 className='text-4xl mb-10 text-accent-400 font-medium'>
 					Managed by our family since 1962
 				</h1>
 
-				<div className='space-y-8'>
+				<div className='space-y-8 text-justify'>
 					<p>
 						Since 1962, The Wild Oasis has been a cherished family-run
 						retreat. Started by our grandparents, this haven has been

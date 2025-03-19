@@ -7,12 +7,12 @@ function Filter() {
 	const router = useRouter(); // To replace the url in the url bar
 	const pathname = usePathname(); // Getting the url path name
 
-	// Getting the curent url value to mark the active filter btn
+	// Getting the current url value to mark the active filter btn
 	const activeFilter = searchParams.get('capacity') ?? 'all';
 
 	// Handle filter function
 	function handleFilter(filter) {
-		// Seting the data into the url
+		// setting the data into the url
 		const params = new URLSearchParams(searchParams); // Using web API searchparams
 		params.set('capacity', filter); // Set the url internally
 		router.replace(`${pathname}?${params.toString()}`, { scroll: false }); // Replacing the url
@@ -59,7 +59,7 @@ function Filter() {
 function Button({ filter, handleFilter, activeFilter, children }) {
 	return (
 		<button
-			className={`px-5 py-2 hover:bg-primary-700 ${
+			className={`px-2 text-xs sm:text-base  sm:px-5 py-2 hover:bg-primary-700 ${
 				filter === activeFilter ? 'bg-primary-700 text-primary-50' : ''
 			}`}
 			onClick={() => handleFilter(filter)}

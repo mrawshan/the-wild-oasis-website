@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
 			>
 				<Header />
 
-				<div className='flex-1 px-8 py-12 grid'>
+				<div className='flex-1 px-3 py-12 sm:px-8 sm:grid'>
 					<main className='max-w-7xl mx-auto w-full'>
 						{/* Providing context API to entire client */}
 						<BookingProvider>{children}</BookingProvider>

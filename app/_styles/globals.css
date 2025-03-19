@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@tailwind base; /* Injects default styles (resets, typography, etc.) */
+@tailwind components; /* Custom reusable Tailwind components */
+@tailwind utilities; /* Utility classes (flex, padding, margins, etc.) */
 
 @layer components {
 	.spinner {
