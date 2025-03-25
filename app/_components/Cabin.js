@@ -9,8 +9,8 @@ function Cabin({ cabin }) {
 		cabin;
 
 	return (
-		<div className='grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24'>
-			<div className='relative scale-[1.15] -translate-x-3'>
+		<div className='grid grid-cols-1 min-[901px]:grid-cols-[3fr_4fr] gap-10 min-[901px]:gap-20 border border-primary-800 py-3 px-4 min-[901px]:px-10 mb-24'>
+			<div className='relative max-[900px]:border border-accent-400 h-[500px] min-[901px]:h-auto min-[901px]:scale-[1.15] min-[901px]:-translate-x-3'>
 				<Image
 					src={image}
 					alt={`Cabin ${name}`}
@@ -20,11 +20,11 @@ function Cabin({ cabin }) {
 			</div>
 
 			<div>
-				<h3 className='text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]'>
+				<h3 className='text-accent-100 w-fit font-black text-7xl mb-5 min-[901px]:translate-x-[-254px] bg-primary-950 min-[901px]:p-6 pb-1 min-[901px]:w-[400px]'>
 					Cabin {name}
 				</h3>
 
-				<p className='text-lg text-primary-300 mb-10'>
+				<p className='text-lg text-primary-300 mb-10 text-justify'>
 					<TextExpander>{description}</TextExpander>
 				</p>
 

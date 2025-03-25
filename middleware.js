@@ -4,7 +4,7 @@
 // export function middleware(request) {
 // 	console.log(request);
 
-// 	// Redirecting the user using middlewere
+// 	// Redirecting the user using middleware
 // 	return NextResponse.redirect(new URL('/about', request.url));
 // }
 
