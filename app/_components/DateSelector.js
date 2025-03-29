@@ -54,9 +54,12 @@ function DateSelector({ settings, bookedDates, cabin }) {
 				}
 			/>
 
-			<div className='flex items-center justify-between max-[1133px]:rounded-full max-[1133px]:my-5 px-8 bg-accent-500 text-primary-800 h-[72px]'>
-				<div className='flex items-baseline gap-6'>
-					<p className='flex gap-2 items-baseline'>
+			<div
+				className={`${range?.from ? 'max-[520px]:h-[200px]' : ''} 
+				 text-center min-[521px]:flex items-center justify-between max-[1133px]:rounded-full max-[1133px]:my-5 px-8 bg-accent-500 text-primary-800 h-[50px] min-[521px]:h-[72px] transition-all duration-500`}
+			>
+				<div className='max-[520px]:pt-2 min-[521px]:flex justify-center items-baseline gap-6'>
+					<p className='flex justify-center gap-2 items-baseline max-[520px]:mb-2'>
 						{discount > 0 ? (
 							<>
 								<span className='text-2xl'>
@@ -74,10 +77,10 @@ function DateSelector({ settings, bookedDates, cabin }) {
 
 					{numNights ? (
 						<>
-							<p className='bg-accent-600 px-3 py-2 text-2xl'>
+							<p className='bg-accent-600 px-3 py-2 text-2xl max-[520px]:mb-2'>
 								<span>&times;</span> <span>{numNights}</span>
 							</p>
-							<p>
+							<p className='max-[520px]:mb-2'>
 								<span className='text-lg font-bold uppercase'>
 									Total
 								</span>{' '}
@@ -91,7 +94,7 @@ function DateSelector({ settings, bookedDates, cabin }) {
 
 				{range?.from || range?.to ? (
 					<button
-						className='border border-primary-800 py-2 px-4 text-sm font-semibold'
+						className='border border-primary-800 py-2 px-4 text-sm font-semibold max-[520px]:mb-3'
 						onClick={resetRange}
 					>
 						Clear

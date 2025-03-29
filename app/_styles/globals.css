@@ -55,3 +55,9 @@
 .rdp-months {
 	gap: 10px !important;
 }
+
+@media (width <= 690px) {
+	.rdp-months {
+		display: block !important;
+	}
+}

@@ -20,7 +20,7 @@ function Cabin({ cabin }) {
 			</div>
 
 			<div>
-				<h3 className='text-accent-100 w-fit font-black text-7xl mb-5 min-[901px]:translate-x-[-254px] bg-primary-950 min-[901px]:p-6 pb-1 min-[901px]:w-[400px]'>
+				<h3 className='text-accent-100 max-[400px]:text-5xl w-fit font-black text-7xl mb-5 min-[901px]:translate-x-[-254px] bg-primary-950 min-[901px]:p-6 pb-1 min-[901px]:w-[400px]'>
 					Cabin {name}
 				</h3>
 
