@@ -5,6 +5,8 @@ import Link from 'next/link';
 function CabinCard({ cabin }) {
 	const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
+	console.log(image);
+
 	return (
 		<div className='flex flex-col sm:flex-row border-primary-800 border'>
 			<div className='relative w-[100%] h-[300px] sm:w-auto sm:h-auto sm:flex-1'>
