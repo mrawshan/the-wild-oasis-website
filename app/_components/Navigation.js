@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navigation({ session }) {
 	const [mobNav, setMobNav] = useState(false);
@@ -59,7 +60,7 @@ export default function Navigation({ session }) {
 								href='/account'
 								className='hover:text-accent-400 transition-colors flex gap-4'
 							>
-								<img
+								<Image
 									className='h-8 rounded-full'
 									src={session.user.image}
 									alt={session.user.name}

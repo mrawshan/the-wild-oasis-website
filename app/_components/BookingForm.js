@@ -1,6 +1,7 @@
 'use client';
 
 import { differenceInDays } from 'date-fns';
+import Image from 'next/image';
 
 // To Consume the context value (Custom corresponding hook)
 import { useBooking } from '@/app/_components/BookingContext';
@@ -41,7 +42,7 @@ function BookingForm({ cabin, user }) {
 				<p>Logged in as</p>
 
 				<div className='flex gap-4 items-center'>
-					<img
+					<Image
 						// Important to display google profile images
 						referrerPolicy='no-referrer'
 						className='h-8 rounded-full'
@@ -76,7 +77,7 @@ function BookingForm({ cabin, user }) {
 								<option value={x} key={x}>
 									{x} {x === 1 ? 'guest' : 'guests'}
 								</option>
-							)
+							),
 						)}
 					</select>
 				</div>
